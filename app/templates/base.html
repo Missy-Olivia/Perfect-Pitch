@@ -9,7 +9,10 @@
         <title>Pitch in 60</title>
         {% endif %}
         {% extends 'bootstrap/base.html'%}
-
+        <!-- Navbar block  --> 
+        {% block navbar %}
+        {% include 'navbar.html' %}
+        {% endblock %}
     </head>
     <body>
         {% block content%}
