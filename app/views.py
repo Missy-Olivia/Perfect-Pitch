@@ -39,20 +39,26 @@ def register():
     '''
     views function to return registration form 
     '''
+    form = RegForm()
     if form.validate_on_submit():
         flash(f'Created account for {form.username.data}', 'success')
-        return redirect(url_for('home'))
-    form = RegForm()
+        return redirect(url_for('index'))
     title = 'Register'
     return render_template('register.html', title = title, form = form)
 
 
-@app.route("/login")
+@app.route("/login", methods=['GET','POST'])
 def login():
     '''
     views function to return login Form 
     '''
     form = loginForm()
+    if form.validate_on_submit():
+        if form.email.data == 'admin@pitch.com' and form.password.data == 'password':
+            flash('You have logged in successfully!', 'success')
+            return redirect(url_for('index'))
+        else:
+            flash('Invalid login!', 'danger')
     title = 'Login'
     return render_template('login.html',title = title, form = form)
 

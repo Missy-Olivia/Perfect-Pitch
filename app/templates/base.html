@@ -4,20 +4,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width= device-width">
         {% if title %}
-        <title> Pitch in 60-{{title}} </title>
+        <title> Pitch-{{title}} </title>
         {% else %}
         <title>Pitch in 60</title>
         {% endif %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
         {% extends 'bootstrap/base.html'%}
-        <!-- Navbar block  --> 
+        <!-- Navigation block  --> 
         {% block navbar %}
         {% include 'navbar.html' %}
         {% endblock %}
     </head>
     <body>
-      
-      {% block content %}
-      
-      {% endblock %}
+          <!-- content block -->
+          {% block content %}
+          
+          {% endblock %}
     </body>
 </html>
