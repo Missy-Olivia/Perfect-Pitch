@@ -1,6 +1,8 @@
-from flask import render_template,request,url_for
+from flask import render_template,url_for,flash,redirect
 from app import app
+from .forms import RegForm, loginForm
 
+app.config['SECRET_KEY'] = '8ded178d6e7cbcda'
 pitches = [
     {
         'author': 'Missy Olivia',
@@ -32,4 +34,25 @@ def about():
     title = 'About'
     return render_template('about.html', title = title)
 
+@app.route("/register", methods=['GET','POST'])
+def register():
+    '''
+    views function to return registration form 
+    '''
+    if form.validate_on_submit():
+        flash(f'Created account for {form.username.data}', 'success')
+        return redirect(url_for('home'))
+    form = RegForm()
+    title = 'Register'
+    return render_template('register.html', title = title, form = form)
+
+
+@app.route("/login")
+def login():
+    '''
+    views function to return login Form 
+    '''
+    form = loginForm()
+    title = 'Login'
+    return render_template('login.html',title = title, form = form)
 
