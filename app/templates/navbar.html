@@ -7,10 +7,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <b><a class="navbar-brand" href="/"> Pitch in 60 </a></b>
+            <b><a class="navbar-brand" href="{{url_for('index')}}"> Pitch in 60 </a></b>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+                <li class="text-left"><a href="{{ url_for('home') }}">Home</a></li>
                 <li class="text-left"><a href="{{ url_for('login') }}">Login</a></li>
                 <li class="text-left"><a href="{{ url_for('register') }}">Sign up</a></li>
         </div>

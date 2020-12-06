@@ -1,8 +1,13 @@
-from flask import render_template,url_for,flash,redirect
+from datetime import datetime
+from flask import Flask,render_template,url_for,flash,redirect
 from app import app
+from flask_sqlalchemy import SQLAlchemy
 from .forms import RegForm, loginForm
+    
 
-app.config['SECRET_KEY'] = '8ded178d6e7cbcda'
+
+
+# dummy data
 pitches = [
     {
         'author': 'Missy Olivia',
@@ -62,3 +67,10 @@ def login():
     title = 'Login'
     return render_template('login.html',title = title, form = form)
 
+@app.route("/home")
+def home():
+    '''
+    views function to return about page
+    '''
+    title = 'Homepage'
+    return render_template('home.html', title = title)
