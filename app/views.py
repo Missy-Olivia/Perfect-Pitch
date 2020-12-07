@@ -1,11 +1,8 @@
 from flask import render_template,url_for,flash,redirect
-from app import app
-from flask_sqlalchemy import SQLAlchemy
+from app import app, db, bcrypt
 from .forms import RegForm, loginForm
 from .models import User, Post
-
-
-
+db.create_all() 
 
 # dummy data
 pitches = [
@@ -46,8 +43,12 @@ def register():
     '''
     form = RegForm()
     if form.validate_on_submit():
-        flash(f'Created account for {form.username.data}', 'success')
-        return redirect(url_for('index'))
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        flash(f'Created account for {form.username.data}, Login Now!', 'success')
+        return redirect(url_for('login'))
     title = 'Register'
     return render_template('register.html', title = title, form = form)
 

@@ -6,7 +6,7 @@ class User(db.Model):
     username = db.Column(db.String(15), unique = True, nullable = False)
     email = db.Column(db.String(100), unique = True, nullable = False)
     img_file = db.Column(db.String(20), nullable = False, default='default.jpeg')
-    passwords = db.Column(db.String(60), nullable = False)
+    password = db.Column(db.String(60), nullable = False)
     posts = db.relationship('Post', backref='author', lazy = True)
 
     def __repr__(self):
@@ -21,3 +21,4 @@ class Post(db.Model):
     def __repr__(self):
         return f"Post('{self.title}','{self.date_posted})"
 
+db.create_all() 
