@@ -1,7 +1,8 @@
-from flask import render_template,url_for,flash,redirect
-from app import app, db, bcrypt
+from flask import render_template,url_for,flash,redirect,abort
+from flask_login import login_required, current_user
+from . import main, db, bcrypt
 from .forms import RegForm, loginForm
-from .models import User, Post
+from ..models import User, Post
 db.create_all() 
 
 # dummy data
@@ -19,7 +20,7 @@ pitches = [
         'date_posted': 'Dec 6, 2020'
     }
 ]
-@app.route("/")
+@main.route("/")
 def index():
     '''
     views function to return page and its data
@@ -28,7 +29,7 @@ def index():
     return render_template('index.html', pitches = pitches)
 
 
-@app.route("/about")
+@main.route("/about")
 def about():
     '''
     views function to return about page
@@ -36,7 +37,7 @@ def about():
     title = 'About'
     return render_template('about.html', title = title)
 
-@app.route("/register", methods=['GET','POST'])
+@main.route("/register", methods=['GET','POST'])
 def register():
     '''
     views function to return registration form 
@@ -53,7 +54,7 @@ def register():
     return render_template('register.html', title = title, form = form)
 
 
-@app.route("/login", methods=['GET','POST'])
+@main.route("/login", methods=['GET','POST'])
 def login():
     '''
     views function to return login Form 
@@ -68,7 +69,7 @@ def login():
     title = 'Login'
     return render_template('login.html',title = title, form = form)
 
-@app.route("/home")
+@main.route("/home")
 def home():
     '''
     views function to return about page
