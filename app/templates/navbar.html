@@ -11,8 +11,13 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+                <li class="text-left"><a href="{{ url_for('main.home') }}">Category</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
                 <li class="text-left"><a href="{{ url_for('auth.login') }}">Sign In</a></li>
                 <li class="text-left"><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+            </ul>
+               
         </div>
 
     </div>

@@ -8,7 +8,13 @@ from .. import db, photos
 @main.route('/')
 def index():
     title="Perfect Pitch"
+    return render_template('index.html', title = title)
+
+@main.route('/home')
+def home():
+    title="Perfect Pitch"
     return render_template('home.html', title = title)
+
 @main.route("/pitch/ads")
 def pitch_advert():
     Advertisements = Pitch.query.filter_by(category="Advertisements").order_by(Pitch.posted.desc()).all()

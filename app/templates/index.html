@@ -1,43 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width= device-width">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
 {% extends 'base.html' %}
-</head>
-        <body> 
-        {% block content%}
-                <main role="main" class="container">
-                  {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            <div class="alert alert-{{ category }}">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                  {% endwith %}
-                        <div class="row">
-                          <div class="col-md-8">
-                                {% for pitch in pitches %}
-                                <article class="media content-section">
-                                <div class="media-body">
-                                <div class="article-metadata">
-                                <a class="mr-2" href="#">{{ pitch.author }}</a>
-                                <small class="text-muted">{{ pitch.date_posted }}</small>
-                                </div>
-                                <h2><a class="article-title" href="#">{{ pitch.title }}</a></h2>
-                                <p class="article-content">{{ pitch.content }}</p>
-                                </div>
-                                </article>
-                        {% endfor %}
-                          </div>
-                        </div>
-                      </main>                      
-        {% endblock %}
 
-        </body>
-</html>
+<style>
+  body{
+    background-image: url('../static/b3.jpg');
+    background-repeat:no-repeat;
+    background-size: cover;
+    height: 90vh;
+  }
+</style>
+  {% block content %}
+  <header>
+    <h1 class="text-center">
+      Welcome to Perfect-Pitch, Your Pitching journey starts here!<br>
+      One minute could make or break you, use it wisely and use it well, 
+      impart your knowledge and feel free to share!
+    </h1>
+  </header>
+  {% endblock %}
+
 
        
