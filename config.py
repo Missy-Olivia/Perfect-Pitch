@@ -4,7 +4,7 @@ import os
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
 
-class TestConfig(Config):
+# class TestConfig(Config):
 
 
 class ProdConfig(Config):

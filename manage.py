@@ -1,4 +1,4 @@
-from app import create_app,db
+from app import create_app
 from flask_script import Manager, Server
 
 app = create_app('development')
@@ -17,7 +17,7 @@ def test():
 
 @manager.shell
 def make_shell_context():
-    return(app = app, db=db)
+    return dict(app = app, db=db)
 
 
 if __name__ ==  '__main__':

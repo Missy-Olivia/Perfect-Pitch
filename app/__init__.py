@@ -2,16 +2,33 @@ from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
+from config import config_options
+from flask_login import LoginManager
 
-# initializing the application
-app = Flask(__name__)
-db = SQLAlchemy(app)
+bootstrap = Bootstrap()
+db = SQLAlchemy()
+login_manager = LoginManager()
 
-app.config['SECRET_KEY'] = '8ded178d6e7cbcda'
-app.config['SQLALCHEMY__DATABASE__URI'] = 'sqlite:///site.db'
-bcrypt = Bcrypt(app)
 
-# Initializing Flask Extensions
-bootstrap = Bootstrap(app)
+def create_app(config_name):
 
-from app import views
+    app = Flask(__name__)
+
+    # Creating the app configurations
+    app.config.from_object(config_options[config_name])
+
+    # Initializing flask extensions
+    bootstrap.init_app(app)
+    db.init_app(app)
+    login_manager.init_app(app)
+    
+
+    # Will add the views and forms
+
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+    
+    from .auth import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
+
+    return app

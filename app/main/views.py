@@ -1,6 +1,7 @@
+from . import main
 from flask import render_template,url_for,flash,redirect,abort
 from flask_login import login_required, current_user
-from . import main, db, bcrypt
+from .. import db
 from .forms import RegForm, loginForm
 from ..models import User, Post
 db.create_all() 
