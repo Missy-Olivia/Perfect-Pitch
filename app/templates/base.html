@@ -6,18 +6,16 @@
         {% if title %}
         <title> Pitch-{{title}} </title>
         {% else %}
-        <title>Pitch in 60</title>
+        <title>Perfect-Pitch</title>
         {% endif %}
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
         {% extends 'bootstrap/base.html'%}
-        <!-- Navigation block  --> 
+    </head>
+    <body>
         {% block navbar %}
         {% include 'navbar.html' %}
         {% endblock %}
-    </head>
-    <body>
-          <!-- content block -->
-          {% block content %}
+        {% block content %}
           
           {% endblock %}
     </body>

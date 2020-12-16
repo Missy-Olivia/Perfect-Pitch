@@ -8,7 +8,7 @@ from .. import db, photos
 @main.route('/')
 def index():
     title="Perfect Pitch"
-    return render_template('index.html', title = title)
+    return render_template('home.html', title = title)
 @main.route("/pitch/ads")
 def pitch_advert():
     Advertisements = Pitch.query.filter_by(category="Advertisements").order_by(Pitch.posted.desc()).all()
@@ -31,7 +31,7 @@ def pitch_projects():
 @main.route("/pitch/Idea")
 def pitch_ideas():
     pitches = Pitch.query.all()
-     Ideas = Pitch.query.filter_by(category="Business Ideas").order_by(Pitch.posted.desc()).all()
+    Ideas = Pitch.query.filter_by(category="Business Ideas").order_by(Pitch.posted.desc()).all()
     return render_template('Idea.html', pitches=pitches, Ideas = Ideas)
 
 @main.route("/pitch/jokes")
