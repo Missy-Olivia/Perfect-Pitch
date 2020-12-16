@@ -4,8 +4,8 @@ import os
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# class TestConfig(Config):
-
+class TestConfig(Config):
+    pass
 
 class ProdConfig(Config):
     pass
@@ -17,5 +17,6 @@ class DevConfig(Config):
 
 config_options = {
 'development':DevConfig,
-'production':ProdConfig
+'production':ProdConfig,
+'tests':TestConfig
 }
