@@ -1,3 +1,4 @@
+{% extends 'bootstrap/base.html'%}
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,20 +9,24 @@
         {% else %}
         <title>Perfect-Pitch</title>
         {% endif %}
-        {% extends 'bootstrap/base.html'%}
+        {%block styles%}
+        {{ super() }}
+        <style>
+            body{
+                font-family: 'El Messiri', sans-serif;
+                font-size: large;
+            }
+        </style>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css?q=1280549780">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=El+Messiri&display=swap" rel="stylesheet">        {% endblock %}
     </head>
     <body>
         {% block navbar %}
         {% include 'navbar.html' %}
         {% endblock %}
         {% block content %}
-        <div class="col-md-4">
-
-          </div>
-          <div class="col-md-8">
-
-        </div>
-        
         {% endblock %}
+        <footer class='footer' style='position:fixed;left:0;bottom:0;background-color:rgb(19, 20, 20);text-align:center;width:100%;color:white;'>Copyright 2020 | Perfect-Pitch</footer> 
     </body>
 </html>

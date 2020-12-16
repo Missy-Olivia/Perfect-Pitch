@@ -32,7 +32,7 @@ def pitch_products():
 def pitch_projects():
     pitches = Pitch.query.all()
     Projects = Pitch.query.filter_by(category="Projects").order_by(Pitch.posted.desc()).all()
-    return render_template('Projects.html', pitches=pitches,Projects = Projects)
+    return render_template('Project.html', pitches=pitches,Projects = Projects)
 
 @main.route("/pitch/Idea")
 def pitch_ideas():
@@ -111,7 +111,7 @@ def new_pitch():
         new_pitch = Pitch(title=title, content=body, category = category, user = current_user)
         new_pitch.save_pitch()
 
-        return redirect(url_for('main.index'))
+        return redirect(url_for('main.home'))
 
 
     title = 'New Pitch'
@@ -162,7 +162,7 @@ def like(pitch_id):
 
     new_like = Like(pitch_id=pitch_id)
     new_like.save_likes()
-    return redirect(url_for('main.index'))
+    return redirect(url_for('main.home'))
 
 
 
@@ -180,4 +180,4 @@ def dislike(pitch_id):
 
     new_dislike = Dislike(pitch_id=pitch_id)
     new_dislike.save_dislikes()
-    return redirect(url_for('main.index')) 
+    return redirect(url_for('main.home')) 

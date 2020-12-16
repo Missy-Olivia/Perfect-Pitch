@@ -6,13 +6,14 @@
       <h3>Category</h3>
       <p class='text-muted'>Where do you want to go?
         <ul class="list-group">
-        <a href = "#"><li class="list-group-item list-group-item-light">Advertisements</li></a>
-        <a href = "#"><li class="list-group-item list-group-item-light">Products</li></a>
-        <a href = "#"><li class="list-group-item list-group-item-light">Projects</li></a>
-        <a href = "#"><li class="list-group-item list-group-item-light">Business Ideas</li></a>
-        <a href = "#"><li class="list-group-item list-group-item-light">Jokes</li></a>
-        <a href = "#"><li class="list-group-item list-group-item-light">Unpopular Opinions</li></a>
+        <a href = "{{url_for('main.pitch_advert')}}"><li class="list-group-item list-group-item-light">Advertisements</li></a>
+        <a href = "{{url_for('main.pitch_products')}}"><li class="list-group-item list-group-item-light">Products</li></a>
+        <a href = "{{url_for('main.pitch_projects')}}"><li class="list-group-item list-group-item-light">Projects</li></a>
+        <a href = "{{url_for('main.pitch_ideas')}}"><li class="list-group-item list-group-item-light">Business Ideas</li></a>
+        <a href = "{{url_for('main.pitch_jokes')}}"><li class="list-group-item list-group-item-light">Jokes</li></a>
+        <a href = "{{url_for('main.pitch_unpopular')}}"><li class="list-group-item list-group-item-light">Unpopular Opinions</li></a>
         </ul>
+        <button class="btn btn-outline-info"><a href="{{url_for('main.new_pitch')}}"><strong><i class="fas fa-plus"></i>  Add your pitch</strong></a></button></br><br>
       </p>
     </div>
   </div>

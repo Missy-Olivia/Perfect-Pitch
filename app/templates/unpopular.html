@@ -1,7 +1,9 @@
-{% extends 'base.html' %}
-   
-   {% block content%}
-
-        <h1>something</h1>
-
-   {% endblock %}
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block content %}
+<div class='col-md-9'>
+    {{ macro.displayPitches(Unpopular) }}
+  </div>
+</div>
+{% endblock %}
