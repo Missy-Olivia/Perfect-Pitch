@@ -14,6 +14,7 @@
                 <li class="text-left"><a href="{{ url_for('main.home') }}">Category</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
                 <li class="text-left"><a href="{{ url_for('auth.login') }}">Sign In</a></li>
                 <li class="text-left"><a href="{{ url_for('auth.logout') }}">Logout</a></li>
             </ul>
