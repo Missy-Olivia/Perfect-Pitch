@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container" >
+       <h1 class="text-center"> Sorry, Page could not be found</h1>
+       <span> 
+           <h3>Back to home?</h3>
+           <a href="{{url_for('main.index')}}"><button class="btn btn-default">Go Back</button></a>
+       </span>
+</div>
+<footer class='footer' style='position:fixed;left:0;bottom:0;padding:10px;background-color:rgb(19, 20, 20);text-align:center;width:100%;color:white;'>Copyright 2020 | Perfect-Pitch</footer> 
+{% endblock %}

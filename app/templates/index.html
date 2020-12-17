@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
+
+{%block styles%}
+{{ super() }}
 <style>
+
   a::hover{
       cursor: pointer;
   }
-  </style>
+</style>
+
+{% endblock %}
+
   {% block content %}
     <div class="container">
-      <header style="padding: 10%;">
+      <header style="padding: 10%;font-size: 2 em;">
         <h1 class="text-center">
           Welcome to Perfect-Pitch, Your Pitching journey starts here!<br>
           One minute could make or break you, use it wisely and use it well, 
@@ -16,6 +23,7 @@
         </a>
       </header>
     </div> 
+    <footer class='footer' style='position:fixed;left:0;bottom:0;padding:10px;background-color:rgb(19, 20, 20);text-align:center;width:100%;color:white;'>Copyright 2020 | Perfect-Pitch</footer> 
   {% endblock %}
 
 
