@@ -2,7 +2,6 @@ import os
 
 class Config:
     SECRET_KEY = '8ded178d6e7cbcda'
-    UPLOADED_PHOTOS_DEST ='app/static/photos'
     #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
